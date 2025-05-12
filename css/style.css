@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+:root {
+    --dark: #333;
+    --ligth: #FFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    transition: all 0.5s;
+    background-color: var(--ligth);
+}
+
+body .images {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+    min-width: 600px;
+    max-width: 900px;
+    width: calc(100% - 100px);
+    height: 400px;
+}
+
+body .images .image {
+    position: relative;
+    overflow: hidden;
+    min-width: 60px; /*60*/
+    margin: 10px;
+    background-size: auto 100%;
+    background-position: center;
+    /*background-repeat: no-repeat;*/ /* Asegura que la imagen no se repita */
+    cursor: pointer;
+    transition: 0.5s cubic-bezier(0.1, 0.1, 0.1, 0.1);
+}
+
+body .images .image.active {
+    flex-grow: 10000;
+    transform: scale(1);
+    max-width: 600px; /*600px*/
+    margin: 0px;
+    border-radius: 25px; /*25*/
+    background-size: auto 110%; /*100*/
+}
+
+body .images .image.active .label {
+    background: var(--dark);
+    padding: 10px;
+    border-radius: 50px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+}
+
+body .images .image:not(.active) {
+    flex-grow: 1;
+    border-radius: 25px;
+}
+
+body .images .image:not(.active) .label {
+    bottom: 10px;
+    left: 10px;
+}
+
+body .images .image:not(.active) .label .info {
+   display: none;
+}
+
+body .images .image .label {
+    display: flex;    
+    position: absolute;
+}
+
+body .images .image .label .icon {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--ligth);
+    color: var(--dark);
+}
+
+body .images .image.active .label .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    color: var(--ligth);
+}
+
+body .images .image .label .info .main {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 718px) {
+    body .images {
+      min-width: 520px;
+    }
+    body .images .image:nth-child(5) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 638px) {
+    body .images {
+      min-width: 440px;
+    }
+    body .images .image:nth-child(4) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 558px) {
+    body .images {
+      min-width: 360px;
+    }
+    body .images .image:nth-child(3) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 478px) {
+    body .images {
+      min-width: 280px;
+    }
+    body .images .image:nth-child(2) {
+      display: none;
+    }
+  }
+
+  body .credit{
+    position: absolute;
+    bottom: 20px;
+    color: inherit;
+    text-decoration: none;
+  } 
+
+  body .credit.photos {
+    left: 20px;
+  }
+
+  body .credit.chanel {
+    right: 20px;
+  }
+
+  .logo {
+    position: absolute; /* Para poder posicionarlo independientemente del flujo normal */
+    top: 10px;         /* Ajusta la distancia desde la parte superior */
+    left: 10px;        /* Ajusta la distancia desde la izquierda */
+    width: 250px;      /* Ajusta el ancho del logo según necesites */
+    height: auto;       /* Mantiene la proporción del logo */
+    z-index: 10;       /* Asegura que el logo esté por encima de otros elementos si es necesario */
+}
+
+.container {
+    /* Otros estilos que ya tengas para el contenedor */
+    margin-top: 10px; /* Ajusta el margen superior del contenedor para que no se superponga con el logo (ajusta este valor según el tamaño de tu logo y el espaciado deseado) */
+}
